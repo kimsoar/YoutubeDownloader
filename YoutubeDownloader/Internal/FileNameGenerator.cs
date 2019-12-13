@@ -27,7 +27,10 @@ namespace YoutubeDownloader.Internal
 
             result += $".{format}";
 
-            return FileEx.MakeSafeFileName(result);
+            // Numbering
+            var output = string.IsNullOrWhiteSpace(number) ? result : $"[{number}]{result}";
+
+            return FileEx.MakeSafeFileName(output);
         }
     }
 }
